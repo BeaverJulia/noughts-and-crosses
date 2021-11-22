@@ -15,6 +15,8 @@ namespace NoughtsAndCrosses
             var continueGame = 0;
             int row;
             var checkBoard = new CheckBoard();
+            var drawOnBoard = new DrawOnBoard();
+
             //Get names
             Console.WriteLine("Player one name:");
             var name = Console.ReadLine();
@@ -44,19 +46,11 @@ namespace NoughtsAndCrosses
                 DrawBoard(board);
                 row = int.Parse(Console.ReadLine());
 
-                //insert o or x
+                //Insert o or x
                 if (board[row] != 'x' && board[row] != 'o')
                 {
-                    if (row % 2 == 0)
-                    {
-                        board[row] = 'o';
-                        nextPlayer++;
-                    }
-                    else
-                    {
-                        board[row] = 'x';
-                        nextPlayer++;
-                    }
+                    board=drawOnBoard.Execute(board, nextPlayer, row);
+                    nextPlayer++;
                 }
                 else
                 {
@@ -77,19 +71,20 @@ namespace NoughtsAndCrosses
             DrawBoard(board);
             if (continueGame == 1)
             {
+                Console.Clear();
                 for (int i = 0; i < 5; i++)
                 {
-                    Thread.Sleep(500);
-                    Console.BackgroundColor = ConsoleColor.Green;
-                    Console.WriteLine("{0} has won!", players.Values.ElementAt(nextPlayer % 2));
-                    Console.BackgroundColor = ConsoleColor.Black;
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("{0} won! Congratulations", players.Values.ElementAt(nextPlayer % 2));
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Thread.Sleep(1000);
                     Console.Clear();
                 }
               
             }
             else
             {
-                Console.WriteLine("Draw");
+                Console.WriteLine("Draw, try again");
             }
         }
 

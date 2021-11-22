@@ -8,6 +8,18 @@ namespace NoughtsAndCrosses
 {
     public class DrawOnBoard
     {
-        public void Execute (){}
+        public char[] Execute(char[] board, int nextPlayer, int row)
+        {
+            if (nextPlayer % 2 == 0)
+            {
+                board[row] = 'o';
+                return board;
+            }
+            else
+            {
+                board[row] = 'x';
+                return board;
+            }
+        }
     }
 }
