@@ -15,7 +15,7 @@ namespace NoughtsAndCrosses
             var continueGame = 0;
             var checkBoard = new CheckBoard();
             var drawOnBoard = new DrawOnBoard();
-
+            int row = 0;
             //Get names
             Console.WriteLine("Player one name:");
             var name = Console.ReadLine();
@@ -43,7 +43,14 @@ namespace NoughtsAndCrosses
                     Console.WriteLine("{0} Your move...", players.Values.ElementAt(0));
                 Console.WriteLine("\n");
                 DrawBoard(board);
-                var row = int.Parse(Console.ReadLine());
+                try
+                {
+                    row = int.Parse(Console.ReadLine());
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Please insert a number ");
+                }
 
                 //Insert o or x
                 if (board[row] != 'x' && board[row] != 'o')
