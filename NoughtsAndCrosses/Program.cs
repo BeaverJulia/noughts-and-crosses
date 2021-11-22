@@ -13,7 +13,6 @@ namespace NoughtsAndCrosses
             var players = new Dictionary<int, string>();
             var nextPlayer = 1;
             var continueGame = 0;
-            int row;
             var checkBoard = new CheckBoard();
             var drawOnBoard = new DrawOnBoard();
 
@@ -44,7 +43,7 @@ namespace NoughtsAndCrosses
                     Console.WriteLine("{0} Your move...", players.Values.ElementAt(0));
                 Console.WriteLine("\n");
                 DrawBoard(board);
-                row = int.Parse(Console.ReadLine());
+                var row = int.Parse(Console.ReadLine());
 
                 //Insert o or x
                 if (board[row] != 'x' && board[row] != 'o')
@@ -62,7 +61,6 @@ namespace NoughtsAndCrosses
                     Console.ForegroundColor = ConsoleColor.White;
                     Console.BackgroundColor = ConsoleColor.Black;
                 }
-
                 //check for winner
                 continueGame = checkBoard.Execute(board);
             } while (continueGame != 1 && continueGame != -1);
@@ -80,7 +78,6 @@ namespace NoughtsAndCrosses
                     Thread.Sleep(1000);
                     Console.Clear();
                 }
-              
             }
             else
             {
@@ -92,21 +89,13 @@ namespace NoughtsAndCrosses
 
         {
             Console.WriteLine("   |   |   ");
-
             Console.WriteLine(" {0} | {1} | {2} ", board[1], board[2], board[3]);
-
             Console.WriteLine("___|___|___");
-
             Console.WriteLine("   |   |   ");
-
             Console.WriteLine(" {0} | {1} | {2} ", board[4], board[5], board[6]);
-
             Console.WriteLine("___|___|___");
-
             Console.WriteLine("   |   |   ");
-
             Console.WriteLine(" {0} | {1} | {2} ", board[7], board[8], board[9]);
-
             Console.WriteLine("   |   |   ");
         }
     }
