@@ -1,8 +1,8 @@
 
-# Noughts and crosses (tic-tac-toe) :video_game: 
-:heavy_multiplication_x::o::heavy_multiplication_x:
-:o::heavy_multiplication_x::heavy_multiplication_x:
-:o::heavy_multiplication_x::o:
+# Noughts and crosses (tic-tac-toe) :video_game: <br />
+:heavy_multiplication_x::o::heavy_multiplication_x:<br />
+:o::heavy_multiplication_x::heavy_multiplication_x:<br />
+:o::heavy_multiplication_x::o:<br />
 Tic-tac-toe console game.
 
 
